@@ -18,13 +18,13 @@
 2. To export onnx
 
    ```
-   python tools/export_onnx.py -n yolox-s -c yolox-s.pth.tar
+   python tools/export_onnx.py -n yolox-s -c yolox_s.pth.tar
    ```
 
 3. Onnx simplifer simplified model
 
    ```
-   python -m onnxsim yolox-s.onnx yolox-s-sim.onnx
+   python -m onnxsim yolox.onnx yolox-s-sim.onnx
    ```
 
 4. Generate ncnn param and bin file.
@@ -43,15 +43,15 @@
    Unsupported slice step ! 
    ```
 
-6. Reference resources:https://github.com/Outstanding/YoloV5s2ncnn
+6. Reference resources:https://github.com/Outstanding/YoloV5s2ncnn (No modification ex.())
 
 7. Use onnx_optimze to generate new param and bin:
 
    ```
-   ncnnoptimize model.param model.bin yolox-sim.param yolox-sim.bin 65536
+   ncnnoptimize.exe yolox-sim.param yolox-sim.bin yolox.param yolox.sim 65536
    ```
 
-8.  Find /ncnn_root/examples/CMakeLists.txt add code:
+8. Find /ncnn_root/examples/CMakeLists.txt add code:
 
    ```
    ncnn_add_example(yolox)
@@ -69,4 +69,5 @@
 https://github.com/Tencent/ncnn
 
 https://github.com/Megvii-BaseDetection/YOLOX
+
 
